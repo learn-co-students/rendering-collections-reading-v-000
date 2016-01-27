@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :set_sample, only: [:show, :edit, :update]
+	before_action :set_post, only: [:show, :edit, :update]
 
 	def index
 		@posts = Post.all
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
 	def update
 	  @post = Post.find(params[:id])
-	  @post.update(sample_params)
+	  @post.update(post_params)
 	  redirect_to post_path(@post)
 	end
 
@@ -37,6 +37,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params[:post]
+    params.require(:post).permit(:title, :description, :author_id)
   end
 end
