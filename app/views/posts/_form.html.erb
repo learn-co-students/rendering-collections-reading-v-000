@@ -21,6 +21,14 @@
     <%= f.text_field :description %>
   </div>
 
+  <div class="field">
+    <%= f.fields_for @post do |author_fields| %>
+      <%= f.label 'Author:' %><br>
+      <%= f.text_field :author %>
+    <% end %>
+  </div><br>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
