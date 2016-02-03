@@ -21,7 +21,14 @@
     <%= f.text_field :description %>
   </div>
 
+  <%= f.collection_select :author_id, Author.all, :id, :name %>
+  <datalist>
+    <% Author.all.each do |author| %>
+    <option value="<%= author.name %>" name="<%= author.id %>" ></option>
+    <% end %>
+  </datalist>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit @post.new_record? ? 'Submit Post' : 'Update Post' %>
   </div>
 <% end %>
