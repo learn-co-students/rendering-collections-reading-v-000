@@ -1,3 +1,4 @@
+
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
 
@@ -34,6 +35,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:title, :description, :author_id)
+    params.require(:post).permit(:title, :description, :author)
   end
 end

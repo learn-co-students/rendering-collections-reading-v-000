@@ -1,7 +1,8 @@
 <h1>My Post</h1>
 
- <%= @post.author.name %> 
- <%= @post.author.hometown %> 
+<% unless @post.author_id.nil? %>
+  <h1>Author: <%= @post.author.name %></h1>
+<% end %>
 
-<h1><%= @post.title %></h1>
-<p><%= @post.description %></p>
+<h1>Title: <%= @post.title %></h1>
+<p>Description: <%= @post.description %></p>
