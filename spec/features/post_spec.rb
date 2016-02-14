@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe 'navigate' do
   before do
-    @post = Post.create(title: "My Post", description: "My post desc")
+    @author = Author.create(name: "Name", hometown: "Town")
+    @post = Post.create(title: "My post title", description: "My post description", author_id: @author.id)
   end
 
   it 'shows the title on the show page in a h1 tag' do
@@ -22,11 +23,14 @@ describe 'navigate' do
 end
 
 describe 'form' do
+  before do 
+    Author.create(name: "Name", hometown: "Town")
+  end
   it 'shows a new form that submits content and redirects and prints out params' do
     visit new_post_path
 
-    fill_in 'title', with: "My post title"
-    fill_in 'description', with: "My post description"
+    fill_in 'post[title]', with: "My post title"
+    fill_in 'post[description]', with: "My post description"
 
     click_on "Submit Post"
 
