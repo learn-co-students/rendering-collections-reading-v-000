@@ -1,5 +1,4 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
+ <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
@@ -21,7 +20,14 @@
     <%= f.text_field :description %>
   </div>
 
+  <%= f.collection_select :author_id, Author.all, :id, :name %>
+    <datalist>
+      <% Author.all.each do |author| %>
+        <option value="<%= author.name %>" name="<%= author.id %>" ></option>
+      <% end %>
+    </datalist>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit @post.new_record? ? 'Submit Post' : 'Update Post' %>
   </div>
 <% end %>
