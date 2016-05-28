@@ -51,4 +51,19 @@ describe 'form' do
 
     expect(page).to have_content("My edit")
   end
+  
+  describe 'index' do
+  	before do
+  		@author = Author.create(name: "John Grisham", hometown: "Charlottesville, VA")
+  		@author2 = Author.create(name: "Chris Bruen", hometown: "Morristown, NJ")
+   		@post = Post.create(title: "My Post", description: "My post desc", author_id: @author.id)
+  	end
+  	
+  	it "displays the index page correctly" do
+  		visit authors_path
+  		expect(page).to have_content("John Grisham")
+  		expect(page).to have_content("Chris Bruen")
+  	end
+  end
+  
 end
