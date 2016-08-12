@@ -1,3 +1,10 @@
-<% @posts.each do |post| %>
-  <%= render :partial => "post", locals: {:post => post} %>
-<% end %>
+<!-- Rendering a collection by iterating through each object in an array -->
+<%# @posts.each do |post| %>
+  <%#= render :partial => "post", locals: {:post => post} %>
+<%# end %>
+
+<!-- Using the  `collection` option for more abstaction: -->
+<%#= render partial: 'post', collection: @posts %>
+
+<!-- Even more abstract -->
+<%= render @posts || "There are no blog posts!" %>
