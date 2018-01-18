@@ -1,3 +1,4 @@
-<% @posts.each do |post| %>
-  <%= render :partial => "post", locals: {:post => post} %>
-<% end %>
+<!-- Abstracting to -->
+<%= render :partial => "post", collection: @posts || "There are no blog posts!" %>
+
+<!-- Furhter abstracting out to: <%= #render @posts || "Or using some message to indicate an empty collection" %> -->
