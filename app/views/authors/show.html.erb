@@ -1,2 +1,5 @@
-<%= @author.name %>
-<%= @author.hometown %>
+<%= render 'author', author: @author %>
+
+<ul>
+<%= render "post", collection: @author.posts %>
+</ul>
