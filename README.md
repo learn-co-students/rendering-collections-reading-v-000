@@ -1,3 +1,5 @@
+Look at changes to posts#index
+
 ## Objectives
 
  1. Use the `collection` keyword with partials
