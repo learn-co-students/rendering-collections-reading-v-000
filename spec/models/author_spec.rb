@@ -12,5 +12,8 @@
 require 'rails_helper'
 
 RSpec.describe Author, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'creates an author' do
+    authorbeard=Author.create(name: "me")
+    expect(authorbeard).to be_valid
+  end
 end
